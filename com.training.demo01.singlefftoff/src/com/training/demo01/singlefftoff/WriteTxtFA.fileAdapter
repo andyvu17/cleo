@@ -1,0 +1,10 @@
+package com.training.demo01.singlefftoff;
+
+def fileWriteAdapter WriteTxtFA {
+
+	def execute(AdapterPayload storageNodes) {
+		parentDirectory = "C:\\Clarify_demos\\demo01\\out"
+		fileNameOrFilter = "target_data.txt"
+	}
+
+}

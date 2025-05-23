@@ -1,0 +1,13 @@
+package com.training.demo01.singlefftoff;
+
+def singleInputCodeTable ColorToCodeCT {
+	def init () {
+		defaultValue = "Z"
+
+		row ("orange", "O")
+		row ("red", "R")
+		row ("blue", "B")
+		row ("green", "G")
+		row ("yellow", "Y")
+	}
+}

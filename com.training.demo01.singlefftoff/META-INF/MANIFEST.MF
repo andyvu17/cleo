@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Require-Bundle: com.extol.ebi.ebiprojectdependencies;bundle-version="[
+ 3.2.0,5.0.0)"
+Bundle-Vendor: EXTOL
+Bundle-ActivationPolicy: lazy
+Eclipse-BundleShape: dir
+Bundle-Version: 1.0.0.qualifier
+Bundle-Name: com.extol.ebi.demo01.singlefftoff
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.training.demo01.singlefftoff;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

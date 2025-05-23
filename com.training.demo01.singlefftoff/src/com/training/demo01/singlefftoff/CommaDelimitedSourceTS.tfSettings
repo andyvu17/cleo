@@ -1,0 +1,11 @@
+package com.training.demo01.singlefftoff ;
+
+def transformationSettings CommaDelimitedSourceTS {
+
+	sourceConnectorSetting [
+		delimiter = ","
+	]
+
+	targetConnectorSetting [
+	]
+}

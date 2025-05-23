@@ -1,0 +1,22 @@
+package com.training.demo01.singlefftoff ;
+
+def flatFileSchema FixedFF {
+
+	_Target Target []
+
+	def record Target {
+
+		FullName String (
+			length = 20
+		)
+		TotalPrice Decimal (
+			length = 7
+		)
+		ColorCode String (
+			length = 1
+		)
+		Units Integer (
+			length = 5
+		)
+	}
+}

@@ -1,0 +1,21 @@
+package com.training.demo01.singlefftoff;
+
+def bps DelimitedFfToFixedFfBPS {
+
+	def execute() {
+		var StorageNode source
+		var StorageNode target
+
+		step {
+			new com.training.demo01.singlefftoff.ReadCsvFA().execute(source)
+		} next : end 
+		step {
+			new com.training.demo01.singlefftoff.DelimitedFfToFixedFfRS().execute(source, target, new
+			com.training.demo01.singlefftoff.CommaDelimitedSourceTS, unset, unset, unset)
+		} next : end 
+		step {
+			new com.training.demo01.singlefftoff.WriteTxtFA().execute(target)
+		} next : end 
+	}
+
+}

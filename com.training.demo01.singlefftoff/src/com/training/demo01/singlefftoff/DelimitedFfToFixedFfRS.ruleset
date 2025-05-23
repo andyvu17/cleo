@@ -1,0 +1,32 @@
+#content/*ruleset 2 */
+package com.training.demo01.singlefftoff
+
+def ruleSet DelimitedFfToFixedFfRS {
+
+	var SystemContext sys = new SystemContext
+	var BaseGlobalContext glb = new BaseGlobalContext
+	var EnvironmentContext env = new EnvironmentContext
+
+	def execute(StorageNode sourceNode, StorageNode targetNode, TransformationSettings settings, StorageNode updateNode, StorageNode sourceContextNode, StorageNode targetContextNode) {
+		var source = bindInput(typeof(com.training.demo01.singlefftoff.DelimitedFF), sourceNode)
+		var target = bindOutput(typeof(com.training.demo01.singlefftoff.FixedFF), targetNode)
+
+		options [
+			connectorOptions [
+				sourceConnector = new DelimitedFlatFileConnector
+				targetConnector = new FixedLengthFlatFileConnector
+			]
+			advancedOptions [
+				useOnlyRequiredAttributes = true
+			]
+		]
+
+		for source._Source initNew target._Target {
+			new Move().execute(source._Source.current.Quantity) => #[target._Target.current.Units]
+			new ConcatenateMany().execute(" ", null, source._Source.current.FirstName, source._Source.current.LastName, null, null, null, null, null, null, null, null) => #[target._Target.current.FullName]
+			new Multiply().execute(source._Source.current.Quantity, source._Source.current.UnitPrice, 2) => #[target._Target.current.TotalPrice]
+			new com.training.demo01.singlefftoff.ColorToCodeCT$RulesetAction().execute(source._Source.current.Color) => #[target._Target.current.ColorCode]
+		}
+	}
+
+}

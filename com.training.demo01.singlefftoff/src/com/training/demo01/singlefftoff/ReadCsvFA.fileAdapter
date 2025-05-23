@@ -1,0 +1,10 @@
+package com.training.demo01.singlefftoff;
+
+def fileReadAdapter ReadCsvFA {
+
+	def execute(AdapterPayload storageNodes) {
+		parentDirectory = "C:\\Clarify_demos\\demo01\\in"
+		fileNameOrFilter = "source_data.csv"
+	}
+
+}
